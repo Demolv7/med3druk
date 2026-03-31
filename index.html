@@ -170,13 +170,27 @@
     <div class="model-stack">
         <div class="viewer-box">
             <model-viewer 
-                src="https://Demolv7.github.io/med3druk/cosmetic3.glb"
-                ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls auto-rotate shadow-intensity="2" exposure="1"
-                ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M3">
-                <button slot="ar-button" class="ar-btn">🔴 ПРИМІРЯТИ В AR</button>
-            </model-viewer>
-        </div>
+    src="https://Demolv7.github.io/med3druk/cosmetic3.glb"
+    ar 
+    ar-modes="webxr scene-viewer quick-look" 
+    camera-controls 
+    auto-rotate 
+    shadow-intensity="1.5" 
+    exposure="1.2"
+    ar-placement="floor"
+    touch-action="pan-y"
+    loading="eager"
+    reveal="auto"
+    alt="3D модель M1">
+    
+    <button slot="ar-button" class="ar-btn">
+        <span style="margin-right:8px;">🔴</span> ПРИМІРЯТИ В AR
+    </button>
+
+    <div slot="ar-failure" style="position:absolute; bottom:20px; left:50%; transform:translateX(-50%); background:#fff; padding:10px; border-radius:10px; color:red; font-size:12px;">
+        AR не підтримується на цьому iPhone
+    </div>
+</model-viewer>
         <div class="info-box">
             <div class="model-id">M3</div>
             <div class="line"></div>
