@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MED3DRUK | Studio</title>
+    <title>MED3DRUK | Full Catalog 12</title>
     
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
         }
 
         header {
-            padding: 30px 5%;
+            padding: 20px 5%;
             border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
@@ -39,31 +39,36 @@
         .logo { font-weight: 800; font-size: 1.5rem; letter-spacing: -1px; text-decoration: none; color: #000; }
         .logo span { color: var(--accent); }
 
-        .container {
-            max-width: 1100px;
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+            padding: 40px 5%;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px;
         }
 
-        .model-stack {
-            display: flex;
-            flex-direction: column;
+        .product-card {
             background: var(--bg);
-            margin-bottom: 40px;
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
         }
 
-        @media (min-width: 900px) {
-            .model-stack { flex-direction: row; height: 550px; }
-            .model-stack.reverse { flex-direction: row-reverse; }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            border-color: var(--accent);
         }
 
         .viewer-box {
-            flex: 1.4;
-            position: relative;
+            width: 100%;
+            height: 300px;
             background: var(--light-gray);
+            position: relative;
         }
 
         model-viewer {
@@ -73,136 +78,241 @@
         }
 
         .info-box {
-            flex: 1;
-            padding: 40px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            flex-grow: 1;
         }
 
-        .model-id { font-weight: 800; font-size: 4rem; margin: 0; line-height: 0.9; letter-spacing: -2px; }
-        .line { width: 40px; height: 6px; background: var(--accent); margin: 15px 0 25px 0; }
-        .description { color: #555; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.5; }
+        .model-id { font-weight: 800; font-size: 1.8rem; margin: 0; letter-spacing: -1px; }
+        .line { width: 30px; height: 4px; background: var(--accent); margin: 10px 0; }
+        
+        .description { 
+            color: #666; 
+            font-size: 0.9rem; 
+            line-height: 1.4; 
+            margin-bottom: 20px;
+            min-height: 3em;
+        }
 
         .ar-btn {
-            background: #fff;
+            background: rgba(255,255,255,0.95);
             color: #000;
             border-radius: 50px;
             border: 1px solid #ddd;
-            padding: 12px 20px;
+            padding: 8px 12px;
             font-weight: 700;
-            font-size: 13px;
+            font-size: 10px;
             position: absolute;
-            bottom: 20px;
-            right: 20px;
+            bottom: 12px;
+            right: 12px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: center;
-            text-transform: uppercase;
+            backdrop-filter: blur(5px);
         }
 
         .btn-order {
-            display: inline-block;
-            background: var(--accent);
+            margin-top: auto;
+            background: var(--primary);
             color: #fff;
-            padding: 16px 32px;
-            border-radius: 10px;
+            padding: 12px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
-            transition: 0.2s;
             text-align: center;
-            border: none;
+            font-size: 0.9rem;
         }
 
-        .btn-order:hover { background: #cc0000; transform: translateY(-2px); }
+        .btn-order:hover { background: var(--accent); }
 
-        footer { text-align: center; padding: 60px; color: #bbb; font-size: 0.8rem; letter-spacing: 1px; }
+        footer { text-align: center; padding: 60px 20px; color: #bbb; border-top: 1px solid #eee; margin-top: 50px; }
+
+        @media (max-width: 600px) {
+            .catalog-grid { grid-template-columns: 1fr; padding: 15px; }
+        }
     </style>
 </head>
 <body>
 
 <header>
     <a href="#" class="logo">MED3<span>DRUK</span></a>
+    <div style="font-size: 0.7rem; font-weight: 800; color: #ccc;">12 MODELS READY</div>
 </header>
 
-<div class="container">
+<div class="catalog-grid">
 
-    <div class="model-stack">
+    <div class="product-card">
         <div class="viewer-box">
-            <model-viewer 
-                src="cosmetic1.glb"
-                ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls auto-rotate shadow-intensity="2" exposure="1"
-                ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M1">
-                <button slot="ar-button" class="ar-btn">🔴 ПРИМІРЯТИ В AR</button>
+            <model-viewer src="cosmetic1.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
             </model-viewer>
         </div>
         <div class="info-box">
             <div class="model-id">M1</div>
             <div class="line"></div>
-            <p class="description">Класична модель з посиленою конструкцією. Створена для надійності та комфорту у щоденному використанні.</p>
+            <p class="description">Класична анатомічна форма.</p>
             <a href="#" class="btn-order">ЗАМОВИТИ</a>
         </div>
     </div>
 
-    <div class="model-stack reverse">
+    <div class="product-card">
         <div class="viewer-box">
-            <model-viewer 
-                src="cosmetic2.glb"
-                ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls auto-rotate shadow-intensity="2" exposure="1"
-                ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M2">
-                <button slot="ar-button" class="ar-btn">🔴 ПРИМІРЯТИ В AR</button>
+            <model-viewer src="cosmetic2.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
             </model-viewer>
         </div>
         <div class="info-box">
             <div class="model-id">M2</div>
             <div class="line"></div>
-            <p class="description">Полегшена версія з інтегрованою перфорацією. Забезпечує кращу вентиляцію та сучасний вигляд.</p>
+            <p class="description">Легка перфорована модель.</p>
             <a href="#" class="btn-order">ЗАМОВИТИ</a>
         </div>
     </div>
 
-    <div class="model-stack">
+    <div class="product-card">
         <div class="viewer-box">
-            <model-viewer 
-                src="cosmetic3.glb"
-                ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls auto-rotate shadow-intensity="2" exposure="1"
-                ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M3">
-                <button slot="ar-button" class="ar-btn">🔴 ПРИМІРЯТИ В AR</button>
+            <model-viewer src="cosmetic3.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
             </model-viewer>
         </div>
         <div class="info-box">
             <div class="model-id">M3</div>
             <div class="line"></div>
-            <p class="description">Дизайнерська серія з агресивними лініями. Для тих, хто цінує стиль та індивідуальність.</p>
+            <p class="description">Агресивний футуристичний дизайн.</p>
             <a href="#" class="btn-order">ЗАМОВИТИ</a>
         </div>
     </div>
 
-    <div class="model-stack reverse">
+    <div class="product-card">
         <div class="viewer-box">
-            <model-viewer 
-                src="cosmetic4.glb"
-                ar ar-modes="webxr scene-viewer quick-look" 
-                camera-controls auto-rotate shadow-intensity="2" exposure="1"
-                ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M4">
-                <button slot="ar-button" class="ar-btn">🔴 ПРИМІРЯТИ В AR</button>
+            <model-viewer src="cosmetic4.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
             </model-viewer>
         </div>
         <div class="info-box">
             <div class="model-id">M4</div>
             <div class="line"></div>
-            <p class="description">Ексклюзивне рішення з покращеною ергономікою. Поєднання легкості та максимальної міцності матеріалів.</p>
+            <p class="description">Ергономічна спортивна серія.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic5.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M5</div>
+            <div class="line"></div>
+            <p class="description">Посилена структура для активних людей.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic6.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M6</div>
+            <div class="line"></div>
+            <p class="description">Мінімалістичний матовий фініш.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic7.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M7</div>
+            <div class="line"></div>
+            <p class="description">Покращена аеродинаміка.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic8.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M8</div>
+            <div class="line"></div>
+            <p class="description">Текстурована поверхня "Carbon".</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic9.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M9</div>
+            <div class="line"></div>
+            <p class="description">Індивідуальна геометрична перфорація.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic10.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M10</div>
+            <div class="line"></div>
+            <p class="description">Ультра-тонка захисна накладка.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic11.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M11</div>
+            <div class="line"></div>
+            <p class="description">Комбінований дизайн Hi-Tech.</p>
+            <a href="#" class="btn-order">ЗАМОВИТИ</a>
+        </div>
+    </div>
+
+    <div class="product-card">
+        <div class="viewer-box">
+            <model-viewer src="cosmetic12.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls auto-rotate shadow-intensity="1" exposure="1" ar-placement="floor" touch-action="pan-y">
+                <button slot="ar-button" class="ar-btn">🔴 AR ПРИМІРКА</button>
+            </model-viewer>
+        </div>
+        <div class="info-box">
+            <div class="model-id">M12</div>
+            <div class="line"></div>
+            <p class="description">Преміальна серія для вечірнього стилю.</p>
             <a href="#" class="btn-order">ЗАМОВИТИ</a>
         </div>
     </div>
 
 </div>
 
-<footer>&copy; 2026 MED3DRUK STUDIO</footer>
+<footer>
+    &copy; 2026 MED3DRUK STUDIO | All Models by Nomad Sculpt.
+</footer>
 
 </body>
 </html>
