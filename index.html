@@ -45,7 +45,6 @@
             padding: 20px;
         }
 
-        /* КАРТКА МОДЕЛІ */
         .model-stack {
             display: flex;
             flex-direction: column;
@@ -54,7 +53,6 @@
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid #eee;
-            transition: transform 0.3s ease;
         }
 
         @media (min-width: 900px) {
@@ -86,7 +84,6 @@
         .line { width: 40px; height: 6px; background: var(--accent); margin: 15px 0 25px 0; }
         .description { color: #555; font-size: 1.1rem; margin-bottom: 30px; line-height: 1.5; }
 
-        /* AR КНОПКА */
         .ar-btn {
             background: #fff;
             color: #000;
@@ -134,7 +131,7 @@
     <div class="model-stack">
         <div class="viewer-box">
             <model-viewer 
-                src="https://Demolv7.github.io/med3druk/cosmetic1.glb"
+                src="cosmetic1.glb"
                 ar ar-modes="webxr scene-viewer quick-look" 
                 camera-controls auto-rotate shadow-intensity="2" exposure="1"
                 ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M1">
@@ -152,7 +149,7 @@
     <div class="model-stack reverse">
         <div class="viewer-box">
             <model-viewer 
-                src="https://Demolv7.github.io/med3druk/cosmetic2.glb"
+                src="cosmetic2.glb"
                 ar ar-modes="webxr scene-viewer quick-look" 
                 camera-controls auto-rotate shadow-intensity="2" exposure="1"
                 ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M2">
@@ -167,23 +164,16 @@
         </div>
     </div>
 
-     <div class="model-stack reverse">
+    <div class="model-stack">
         <div class="viewer-box">
             <model-viewer 
-                src="https://Demolv7.github.io/med3druk/cosmetic3.glb"
+                src="cosmetic3.glb"
                 ar ar-modes="webxr scene-viewer quick-look" 
                 camera-controls auto-rotate shadow-intensity="2" exposure="1"
                 ar-placement="floor" touch-action="pan-y" magic-leap alt="Model M3">
                 <button slot="ar-button" class="ar-btn">🔴 ПРИМІРЯТИ В AR</button>
             </model-viewer>
         </div>
-        <div class="info-box">
-            <div class="model-id">M2</div>
-            <div class="line"></div>
-            <p class="description">Полегшена версія з інтегрованою перфорацією. Забезпечує кращу вентиляцію та сучасний вигляд.</p>
-            <a href="#" class="btn-order">ЗАМОВИТИ</a>
-        </div>
-    </div>
         <div class="info-box">
             <div class="model-id">M3</div>
             <div class="line"></div>
